@@ -4,9 +4,8 @@ import { ListPageComponent } from './core/components/list-page/list-page.compone
 import { SummaryPageComponent } from './core/components/summary-page/summary-page.component';
 
 const routes: Routes = [
-    { path: 'navigator', component: ListPageComponent },
     { path: '', component: SummaryPageComponent },
-    { path: '', redirectTo: '', pathMatch: 'full' },
+    { path: 'navigator', component: ListPageComponent },
 ];
 
 @NgModule({
