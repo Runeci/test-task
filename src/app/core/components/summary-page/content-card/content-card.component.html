@@ -4,7 +4,10 @@
         <p class="card-text">
             {{ transactionCard.count }}
         </p>
-        <a href="#" class="btn btn-primary">See all</a>
+        <a
+            class="btn btn-primary"
+            (click)="goToTab(tabNum)"
+        >See all</a>
     </div>
 </div>
 
