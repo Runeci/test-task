@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/components/header/header.component';
 import { SummaryPageComponent } from './core/components/summary-page/summary-page.component';
 import { ListPageComponent } from './core/components/list-page/list-page.component';
+import { HeadingCardComponent } from './core/components/summary-page/heading-card/heading-card.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { ListPageComponent } from './core/components/list-page/list-page.compone
     HeaderComponent,
     SummaryPageComponent,
     ListPageComponent,
+    HeadingCardComponent,
   ],
   imports: [
     BrowserModule,
