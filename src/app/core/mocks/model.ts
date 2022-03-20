@@ -1,4 +1,4 @@
-const DATA = [
+export const TRANSACTIONS = [
     {
         _id: '5d99beb677015a5c2c14542e',
         amount: 'floating(1, 4000, 2)',

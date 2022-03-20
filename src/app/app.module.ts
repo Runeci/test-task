@@ -7,6 +7,7 @@ import { HeaderComponent } from './core/components/header/header.component';
 import { SummaryPageComponent } from './core/components/summary-page/summary-page.component';
 import { ListPageComponent } from './core/components/list-page/list-page.component';
 import { HeadingCardComponent } from './core/components/summary-page/heading-card/heading-card.component';
+import { ContentCardComponent } from './core/components/summary-page/content-card/content-card.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { HeadingCardComponent } from './core/components/summary-page/heading-car
     SummaryPageComponent,
     ListPageComponent,
     HeadingCardComponent,
+    ContentCardComponent,
   ],
   imports: [
     BrowserModule,
