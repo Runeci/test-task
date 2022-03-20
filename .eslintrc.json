@@ -21,10 +21,12 @@
                 "airbnb-typescript/base"
             ],
             "rules": {
+                "class-methods-use-this": "off",
                 "import/prefer-default-export": 0,
                 "max-len": "off",
                 "@typescript-eslint/indent": 0,
                 "@typescript-eslint/lines-between-class-members": 0,
+                "no-return-assign": "off",
                 "@angular-eslint/directive-selector": [
                     "error",
                     {

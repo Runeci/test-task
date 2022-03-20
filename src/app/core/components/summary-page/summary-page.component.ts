@@ -1,16 +1,40 @@
-import { Component } from '@angular/core';
-import { Transaction } from '../../shared/data.typing';
-import { TRANSACTIONS } from '../../mocks/model';
+import { Component, OnInit } from '@angular/core';
+import { Transaction, TransactionView } from '../../shared/data.typing';
+import { TransactionService } from '../../services/transaction.service';
 
 @Component({
     selector: 'app-summary-page',
     templateUrl: './summary-page.component.html',
     styleUrls: ['./summary-page.component.scss'],
 })
-export class SummaryPageComponent {
-    public transactionInfo: Transaction[] = TRANSACTIONS;
+export class SummaryPageComponent implements OnInit {
+    public transactions: Transaction[] = [];
+    public transactionTypeCards: TransactionView[] = [];
 
-    getTransactionType(arr: Transaction[]): string[] {
-        return [...new Set(arr.map((transaction) => transaction.type))];
+    constructor(private transactionService: TransactionService) {
+    }
+
+    public ngOnInit() {
+        this.getTransactions();
+    }
+
+    getTransactions(): void {
+        this.transactionService.getTransactions()
+            .subscribe((transactions) => {
+                this.transactions = transactions;
+                this.getTransactionType();
+            });
+    }
+
+    getTransactionType(): void {
+        const typesMap = this.transactions.reduce((acc, curr) => {
+            acc[curr.type] = (acc[curr.type] || 0) + 1;
+            return acc;
+        }, {} as Record<string, number>);
+
+        this.transactionTypeCards = Object.keys(typesMap).map((type) => ({
+            type,
+            count: typesMap[type],
+        }));
     }
 }

@@ -13,3 +13,8 @@ type Name = {
     first: string,
     last: string,
 };
+
+export interface TransactionView {
+    type: string;
+    count: number;
+}

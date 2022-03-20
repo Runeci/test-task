@@ -1,1 +1,6 @@
-<app-heading-card></app-heading-card>
+<app-heading-card [transactions]="transactions"></app-heading-card>
+<div class="card-deck">
+    <app-content-card
+        *ngFor="let item of transactionTypeCards"
+        [transactionCard]="item"></app-content-card>
+</div>
