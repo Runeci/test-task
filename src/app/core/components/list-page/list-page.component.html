@@ -1,1 +1,17 @@
-<p>list-page works!</p>
+<div class="d-flex justify-content-center">
+    <div class="border border-3 rounded list-container">
+        <ul class="nav nav-tabs d-flex justify-content-center mb-4">
+            <li
+                class="nav-item rounded-top"
+                *ngFor="let item of transactionType; let i = index"
+            >
+                <a class="nav-link"
+                   [routerLink]="'/navigator'"
+                   routerLinkActive="active"
+                   [queryParams]="{ tab: i }">{{ item | uppercase }}</a>
+            </li>
+        </ul>
+
+        <app-list-table [transactionInfo]="transactionInfo"></app-list-table>
+    </div>
+</div>
