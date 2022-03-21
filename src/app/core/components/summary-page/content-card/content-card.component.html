@@ -1,11 +1,12 @@
 <div class="card" style="width: 100%">
     <div class="card-body">
-        <h5 class="card-title">{{ transactionCard.type }}</h5>
+        <h5 class="card-title">{{ transactionCard.count }}</h5>
         <p class="card-text">
-            {{ transactionCard.count }}
+            {{ transactionCard.type | titlecase }}
         </p>
         <a
             class="btn btn-primary"
+            style="color: white"
             (click)="goToTab(tabNum)"
         >See all</a>
     </div>
