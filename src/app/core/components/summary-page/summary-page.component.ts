@@ -18,7 +18,7 @@ export class SummaryPageComponent implements OnInit {
         this.getTransactions();
     }
 
-    getTransactions(): void {
+    private getTransactions(): void {
         this.transactionService.getTransactions()
             .subscribe((transactions) => {
                 this.transactions = transactions;
@@ -26,7 +26,7 @@ export class SummaryPageComponent implements OnInit {
             });
     }
 
-    getTransactionType(): void {
+    private getTransactionType(): void {
         const typesMap = this.transactions.reduce((acc, curr) => {
             acc[curr.type] = (acc[curr.type] || 0) + 1;
             return acc;

@@ -9,11 +9,6 @@ export interface Transaction {
     address: string,
 }
 
-type Name = {
-    first: string,
-    last: string,
-};
-
 export interface TransactionView {
     type: string;
     count: number;
@@ -25,3 +20,8 @@ export interface TransactionInfo {
     amount: string,
     type: string,
 }
+
+type Name = {
+    first: string,
+    last: string,
+};

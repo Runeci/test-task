@@ -18,7 +18,7 @@ export class ContentCardComponent {
         ) {
     }
 
-    goToTab(tab: number) {
+    public goToTab(tab: number): void {
         this.router.navigate(['/navigator'], {
             relativeTo: this.route,
             queryParams: { tab: `${tab}` },
