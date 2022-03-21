@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-center">
+<div class="d-flex justify-content-center p-4">
     <div class="border border-3 rounded list-content">
         <ul class="nav nav-tabs d-flex justify-content-center mb-4">
             <li
@@ -12,6 +12,6 @@
             </li>
         </ul>
 
-        <app-list-table *ngIf="currentTab" [transactionInfo]="transactionInfo"></app-list-table>
+        <app-list-table [transactionInfo]="transactionInfo"></app-list-table>
     </div>
 </div>

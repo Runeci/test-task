@@ -48,8 +48,12 @@ export class ListPageComponent implements OnInit {
                 type: item.type,
                 company: item.company,
                 name: `${item.name.first} ${item.name.last}`,
-            }))
-            .filter((i) => i.type === this.transactionType[parseInt(tab, 10)]);
+            }));
+
+        if (tab) {
+            this.transactionInfo = this.transactionInfo
+                .filter((i) => i.type === this.transactionType[parseInt(tab, 10)]);
+        }
     }
 
     private getTransactionType(): void {
