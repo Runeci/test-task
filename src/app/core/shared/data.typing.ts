@@ -18,3 +18,10 @@ export interface TransactionView {
     type: string;
     count: number;
 }
+
+export interface TransactionInfo {
+    name: string,
+    company: string,
+    amount: string,
+    type: string,
+}

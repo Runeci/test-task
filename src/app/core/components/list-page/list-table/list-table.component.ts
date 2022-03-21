@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { TransactionInfo } from '../list-page.component';
+import { TransactionInfo } from '../../../shared/data.typing';
 
 @Component({
     selector: 'app-list-table',

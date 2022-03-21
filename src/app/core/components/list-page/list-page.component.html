@@ -12,6 +12,6 @@
             </li>
         </ul>
 
-        <app-list-table [transactionInfo]="transactionInfo"></app-list-table>
+        <app-list-table *ngIf="currentTab" [transactionInfo]="transactionInfo"></app-list-table>
     </div>
 </div>

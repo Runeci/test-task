@@ -1,14 +1,7 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { TransactionService } from '../../services/transaction.service';
-import { Transaction } from '../../shared/data.typing';
-
-export interface TransactionInfo {
-    name: string,
-    company: string,
-    amount: string,
-    type: string,
-}
+import { Transaction, TransactionInfo } from '../../shared/data.typing';
 
 @Component({
     selector: 'app-list-page',
@@ -20,41 +13,43 @@ export class ListPageComponent implements OnInit {
     public transactions: Transaction[] = [];
     public transactionInfo: TransactionInfo[] = [];
     public transactionType: string[] = [];
-    public currentTab!: number;
+    public currentTab: string = '';
 
     constructor(
         private transactionService: TransactionService,
         private route: ActivatedRoute,
-    ) {}
+    ) {
+    }
 
     public ngOnInit() {
         this.getTransactions();
-        this.getTransactionInfo(this.transactionType[Number(this.currentTab)]);
+        this.getTransactionInfo(this.currentTab);
     }
 
     private getTransactions(): void {
         this.route.queryParamMap
             .subscribe((params) => {
-                this.currentTab = Number(params.get('tab'));
-                this.getTransactionInfo(this.transactionType[Number(this.currentTab)]);
+                this.currentTab = params.get('tab') ?? '';
+                this.getTransactionInfo(this.currentTab);
             });
+
         this.transactionService.getTransactions()
             .subscribe((transactions) => {
                 this.transactions = transactions;
                 this.getTransactionType();
-                this.getTransactionInfo(this.transactionType[Number(this.currentTab)]);
+                this.getTransactionInfo(this.currentTab);
             });
     }
 
-    private getTransactionInfo(type: string): void {
+    private getTransactionInfo(tab: string): void {
         this.transactionInfo = this.transactions
             .map((item) => ({
-            amount: item.amount,
-            type: item.type,
-            company: item.company,
-            name: `${item.name.first} ${item.name.last}`,
-        }))
-            .filter((i) => i.type === type);
+                amount: item.amount,
+                type: item.type,
+                company: item.company,
+                name: `${item.name.first} ${item.name.last}`,
+            }))
+            .filter((i) => i.type === this.transactionType[parseInt(tab, 10)]);
     }
 
     private getTransactionType(): void {
